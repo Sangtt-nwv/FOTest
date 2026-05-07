@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>NWV_QRTest_DP</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+[SRSReportParameterAttribute(classStr(NWV_QRTest_Contract))]
+public class NWV_QRTest_DP extends SRSReportDataProviderBase
+{
+    NWV_QRTest NWV_QRTestTmp;
+
+    FromDate                                fromDate;
+    ToDate                                  toDate;
+ 
+
+   
+  
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>getNWV_QRTestTmp</Name>
+				<Source><![CDATA[
+    [SRSReportDataSetAttribute(tableStr(NWV_QRTest))]
+    public NWV_QRTest getNWV_QRTestTmp()
+    {
+        select * from NWV_QRTestTmp;
+        return NWV_QRTestTmp;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>processReport</Name>
+				<Source><![CDATA[
+    public void processReport()
+    {
+        Info('test');
+        Info('test');
+        Info('test');
+        Info('test');
+
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

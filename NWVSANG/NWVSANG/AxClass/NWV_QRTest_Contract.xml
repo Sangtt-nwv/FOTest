@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>NWV_QRTest_Contract</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+[
+DataContractAttribute,
+    SysOperationGroupAttribute('@SYS80056', "@SYS343126", '1'),
+    SysOperationGroupAttribute('@SYS7764', "@SYS28007", '2')
+]
+public class NWV_QRTest_Contract implements SysOperationValidatable
+{
+    FromDate            fromDate;
+    ToDate              toDate;
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>parmFromDate</Name>
+				<Source><![CDATA[
+    [
+        DataMemberAttribute,
+        SysOperationLabelAttribute(literalstr("@SYS24050")),
+        SysOperationHelpTextAttribute(literalstr("@SYS67")),
+        SysOperationGroupMemberAttribute('@SYS7402'),
+        SysOperationDisplayOrderAttribute('1')
+    ]
+    public FromDate parmFromDate(FromDate _fromDate = fromDate)
+    {
+        fromDate = _fromDate;
+        return fromDate;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmToDate</Name>
+				<Source><![CDATA[
+    [
+        DataMemberAttribute,
+        SysOperationLabelAttribute(literalstr("@SYS14656")),
+        SysOperationHelpTextAttribute(literalstr("@SYS67")),
+        SysOperationGroupMemberAttribute('@SYS7402'),
+        SysOperationDisplayOrderAttribute('2')
+    ]
+    public ToDate parmToDate(ToDate _toDate = toDate)
+    {
+        toDate = _toDate;
+        return toDate;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>validate</Name>
+				<Source><![CDATA[
+    public boolean validate()
+    {
+        boolean             isValid = true;
+        ;
+        if (!fromDate)
+        {
+            isValid = checkFailed("@SYS97591");
+        }
+
+        if (!toDate)
+        {
+            isValid = checkFailed("@SYS97592");
+        }
+
+        return isValid;
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>
